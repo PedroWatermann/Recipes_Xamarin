@@ -1,0 +1,15 @@
+C:\Users\Aluno\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes\obj\Debug\netstandard2.0\Recipes.csproj.AssemblyReference.cache
+C:\Users\Aluno\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes\obj\Debug\netstandard2.0\Recipes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Aluno\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\Aluno\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes\obj\Debug\netstandard2.0\Views\PagPrincipal.xaml.g.cs
+C:\Users\Aluno\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes\obj\Debug\netstandard2.0\Recipes.AssemblyInfoInputs.cache
+C:\Users\Aluno\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes\obj\Debug\netstandard2.0\Recipes.AssemblyInfo.cs
+C:\Users\Aluno\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes\obj\Debug\netstandard2.0\Recipes.csproj.CoreCompileInputs.cache
+C:\Users\Aluno\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes\bin\Debug\netstandard2.0\Recipes.deps.json
+C:\Users\Aluno\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes\bin\Debug\netstandard2.0\Recipes.dll
+C:\Users\Aluno\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes\bin\Debug\netstandard2.0\Recipes.pdb
+C:\Users\Aluno\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\Aluno\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes\obj\Debug\netstandard2.0\Recipes.dll
+C:\Users\Aluno\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes\obj\Debug\netstandard2.0\refint\Recipes.dll
+C:\Users\Aluno\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes\obj\Debug\netstandard2.0\Recipes.pdb
+C:\Users\Aluno\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes\obj\Debug\netstandard2.0\ref\Recipes.dll

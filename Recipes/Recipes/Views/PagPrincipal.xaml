@@ -1,35 +1,113 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Recipes.Views.PagPrincipal"
-            FlyoutBehavior="Flyout">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:views="clr-namespace:Recipes.Views" x:DataType="views:PagPrincipal"
+            x:Class="Recipes.Views.PagPrincipal">
     <FlyoutPage.Flyout>
         <ContentPage
             Title="Menu"
-            BackgroundColor="#FF9800">
+            BackgroundColor="#EF8800">
 
             <StackLayout Margin="10">
-                <Image
-                    Source="chefe.png"
-                    HorizontalOptions="CenterAndExpand"/>
-                <Label
-                    Text="Recipes"
-                    FontAttributes="Bold"
-                    TextColor="Black"
-                    FontSize="30"
-                    HorizontalOptions="CenterAndExpand"
-                    Margin="0, 0, 0, 50"/>
+                <StackLayout Orientation="Horizontal">
+                    <Image
+                        Source="chefe.png"
+                        HeightRequest="180"
+                        VerticalOptions="CenterAndExpand"/>
+                    <Label
+                        Text="Recipes"
+                        FontAttributes="Bold"
+                        TextColor="Black"
+                        FontSize="30"
+                        VerticalOptions="CenterAndExpand"
+                        Margin="0, 0, 0, 50"/>
+                </StackLayout>
+                
+                <StackLayout Orientation="Horizontal">
+                    <Image 
+                        Source="home_icon_black.png"
+                        WidthRequest="50"
+                        VerticalOptions="CenterAndExpand"/>
+                    <Button
+                        Text="Home"
+                        TextTransform="None"
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        CornerRadius="20"
+                        HorizontalOptions="FillAndExpand"
+                        BackgroundColor="Wheat"
+                        x:Name="btnHome"
+                        Clicked="btnHome_Clicked"/>
+                </StackLayout>
+                
+                <StackLayout Orientation="Horizontal">
+                    <Image 
+                        Source="add_icon_black.png"
+                        WidthRequest="50"
+                        VerticalOptions="CenterAndExpand"/>
+                    <Button
+                        Text="Inserir"
+                        TextTransform="None"
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        CornerRadius="20"
+                        HorizontalOptions="FillAndExpand"
+                        BackgroundColor="Wheat"
+                        x:Name="btnInserir"
+                        Clicked="btnInserir_Clicked"/>
+                </StackLayout>
+                
+                <StackLayout Orientation="Horizontal">
+                    <Image 
+                        Source="search_icon_black.png"
+                        WidthRequest="50"
+                        VerticalOptions="CenterAndExpand"/>
+                    <Button
+                        Text="Localizar"
+                        TextTransform="None"
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        CornerRadius="20"
+                        HorizontalOptions="FillAndExpand"
+                        BackgroundColor="Wheat"
+                        x:Name="btnLocalizar"
+                        Clicked="btnLocalizar_Clicked"/>
+                </StackLayout>
+                
+                <StackLayout Orientation="Horizontal">
+                    <Image 
+                        Source="info_icon_black.png"
+                        WidthRequest="50"
+                        VerticalOptions="CenterAndExpand"/>
+                    <Button
+                        Text="Sobre"
+                        TextTransform="None"
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        CornerRadius="20"
+                        HorizontalOptions="FillAndExpand"
+                        BackgroundColor="Wheat"
+                        x:Name="btnSobre"
+                        Clicked="btnSobre_Clicked"/>
+                </StackLayout>
             </StackLayout>
         </ContentPage>
     </FlyoutPage.Flyout>
 
     <FlyoutPage.Detail>
-        <ContentPage
-            Title="Home"
-            BackgroundColor="#FF9800">
-            <Label
-                Text="Hello, World!"
-                TextColor="Black"/>
-        </ContentPage>
+        <NavigationPage>
+            <x:Arguments>
+                <ContentPage 
+                    Title="Home">
+                    <StackLayout>
+                        <Label Text="Se esse texto está visível é que algo está errado!"
+                               HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand" />
+                        <Label Text="Contate o suporte imediatamente!"
+                               HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand" />
+                    </StackLayout>
+                </ContentPage>
+            </x:Arguments>
+        </NavigationPage>
     </FlyoutPage.Detail>
 </FlyoutPage>

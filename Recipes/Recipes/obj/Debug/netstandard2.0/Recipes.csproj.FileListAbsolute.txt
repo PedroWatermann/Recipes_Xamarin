@@ -13,3 +13,7 @@ C:\Users\Aluno\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes\obj\D
 C:\Users\Aluno\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes\obj\Debug\netstandard2.0\refint\Recipes.dll
 C:\Users\Aluno\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes\obj\Debug\netstandard2.0\Recipes.pdb
 C:\Users\Aluno\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes\obj\Debug\netstandard2.0\ref\Recipes.dll
+C:\Users\Aluno\Source\Repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes\obj\Debug\netstandard2.0\Views\PagHome.xaml.g.cs
+C:\Users\Aluno\Source\Repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes\obj\Debug\netstandard2.0\Views\PagInserir.xaml.g.cs
+C:\Users\Aluno\Source\Repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes\obj\Debug\netstandard2.0\Views\PagLocalizar.xaml.g.cs
+C:\Users\Aluno\Source\Repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes\obj\Debug\netstandard2.0\Views\PagSobre.xaml.g.cs

@@ -16,5 +16,15 @@ namespace Recipes.Views
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private void btnHome_Clicked(object sender, EventArgs e)
+        {
+            FlyoutPage fp = (FlyoutPage)Application.Current.MainPage;
+            fp.Detail = new NavigationPage(new PagHome())
+            {
+                BarBackgroundColor = Color.FromHex("#C85400")
+            };
+            fp.IsPresented = false;
+        }
+    }
 }

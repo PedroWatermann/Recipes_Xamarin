@@ -3,46 +3,74 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Recipes.Views.PagHome"
              Title="Home"
-             BackgroundColor="#EF8800">
-    <ContentPage.Content>
-        <Grid Margin="10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="100"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
+             BackgroundColor="#DF7800"
+             Padding="10, 30">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-            <Image 
-                Source="flan.png"
-                Grid.Row="0"
-                Grid.Column="0"
-                Grid.ColumnSpan="2"
-                VerticalOptions="Center"/>
+        <Image
+            Source="flan.png"
+            WidthRequest="300"
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            VerticalOptions="Center"/>
 
-            <Image 
-                Source="add_icon_black.png"
-                Grid.Row="1"
-                Grid.Column="0"
-                VerticalOptions="Center"/>
-            <Label
-                Text="Cadastrar"
-                FontSize="25"
-                FontAttributes="Bold"
-                Grid.Row="2"
-                Grid.Column="0"
-                VerticalOptions="StartAndExpand"
-                HorizontalOptions="CenterAndExpand"/>
+        <Image
+            Source="add_icon_black"
+            WidthRequest="100"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Grid.Row="1"
+            Grid.Column="0"
+            x:Name="imgAdicionar">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer
+                    x:Name="tapImgAdicionar"
+                    NumberOfTapsRequired="1"
+                    Tapped="tapImgAdicionar_Tapped"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <Label
+            Text="Adicionar"
+            TextColor="Black"
+            FontSize="25"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            Grid.Row="2"
+            Grid.Column="0"/>
 
-            <Image 
-                Source="flan.png"
-                Grid.Row="1"
-                Grid.Column="1"
-                VerticalOptions="Center"/>
-        </Grid>
-    </ContentPage.Content>
+        <Image
+            Source="search_icon_black"
+            WidthRequest="100"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Grid.Row="1"
+            Grid.Column="1"
+            x:Name="imgPesquisar">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer
+                    x:Name="tapImgPesquisar"
+                    NumberOfTapsRequired="1"
+                    Tapped="tapImgPesquisar_Tapped"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <Label
+            Text="Pesquisar"
+            TextColor="Black"
+            FontSize="25"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            Grid.Row="2"
+            Grid.Column="1"/>
+    </Grid>
 </ContentPage>

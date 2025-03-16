@@ -14,9 +14,9 @@ androidlinkskip=
 androidsdkbuildtoolsversion=32.0.0
 androidsdkpath=c:\program files (x86)\android\android-sdk\
 androidndkpath=
-javasdkpath=c:\program files\microsoft\jdk-11.0.16.101-hotspot\
+javasdkpath=c:\program files (x86)\android\openjdk\jdk-17.0.12\
 androidsequencepointsmode=none
-xamarinandroidversion=13.2.0-0
+xamarinandroidversion=13.2.2-0
 monosymbolarchive=false
 androiduselatestplatformsdk=false
 targetframeworkversion=v13.0
@@ -25,11 +25,11 @@ androidgeneratejnimarshalmethods=false
 os=windows_nt
 androidincludedebugsymbols=true
 androidpackagenamingpolicy=lowercasecrc64
-_nugetassetstimestamp=638775842797614725
+_nugetassetstimestamp=638777284634492963
 typemapkind=strings-asm
 androidsupportedabis=arm64-v8a
 armeabi-v7a
 x86
 x86_64
 androidmanifestplaceholders=
-projectfullpath=c:\users\aluno\source\repos\pedrowatermann\recipes_xamarin\recipes\recipes.android\recipes.android.csproj
+projectfullpath=c:\users\pedro\source\repos\pedrowatermann\recipes_xamarin\recipes\recipes.android\recipes.android.csproj

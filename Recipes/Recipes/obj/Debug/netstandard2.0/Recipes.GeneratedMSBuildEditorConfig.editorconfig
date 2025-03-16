@@ -1,3 +1,8 @@
 is_global = true
 build_property.RootNamespace = Recipes
-build_property.ProjectDir = C:\Users\Aluno\Source\Repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes\
+build_property.ProjectDir = C:\Users\pedro\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.CsWinRTUseWindowsUIXamlProjections = false
+build_property.EffectiveAnalysisLevelStyle = 
+build_property.EnableCodeStyleSeverity = 

@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Recipes.Views.PagMain">
+    <FlyoutPage.Flyout>
+        <ContentPage
+            Title="Menu"
+            BackgroundColor="#DF7800">
+
+            <StackLayout Margin="10">
+                <Image
+                    Source="chefe.png"
+                    HeightRequest="200"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="Start"/>
+
+                <StackLayout Orientation="Horizontal">
+                    <Image 
+                        Source="home_icon_black.png"
+                        WidthRequest="50"
+                        VerticalOptions="CenterAndExpand"/>
+                    <Button
+                        Text="Home"
+                        TextColor="Black"
+                        TextTransform="None"
+                        FontAttributes="Bold"
+                        FontSize="25"
+                        CornerRadius="20"
+                        HorizontalOptions="FillAndExpand"
+                        BackgroundColor="Wheat"
+                        x:Name="btnHome"
+                        Clicked="btnHome_Clicked"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Image 
+                        Source="add_icon_black.png"
+                        WidthRequest="50"
+                        VerticalOptions="CenterAndExpand"/>
+                    <Button
+                        Text="Inserir"
+                        TextColor="Black"
+                        TextTransform="None"
+                        FontAttributes="Bold"
+                        FontSize="25"
+                        CornerRadius="20"
+                        HorizontalOptions="FillAndExpand"
+                        BackgroundColor="Wheat"
+                        x:Name="btnInserir"
+                        Clicked="btnInserir_Clicked"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Image 
+                        Source="search_icon_black.png"
+                        WidthRequest="50"
+                        VerticalOptions="CenterAndExpand"/>
+                    <Button
+                        Text="Localizar"
+                        TextColor="Black"
+                        TextTransform="None"
+                        FontAttributes="Bold"
+                        FontSize="25"
+                        CornerRadius="20"
+                        HorizontalOptions="FillAndExpand"
+                        BackgroundColor="Wheat"
+                        x:Name="btnLocalizar"
+                        Clicked="btnLocalizar_Clicked"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Image 
+                        Source="info_icon_black.png"
+                        WidthRequest="50"
+                        VerticalOptions="CenterAndExpand"/>
+                    <Button
+                        Text="Sobre"
+                        TextColor="Black"
+                        TextTransform="None"
+                        FontAttributes="Bold"
+                        FontSize="25"
+                        CornerRadius="20"
+                        HorizontalOptions="FillAndExpand"
+                        BackgroundColor="Wheat"
+                        x:Name="btnSobre"
+                        Clicked="btnSobre_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+        </ContentPage>
+    </FlyoutPage.Flyout>
+
+    <FlyoutPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <ContentPage Title="Home">
+                    <StackLayout>
+                        <Label 
+                            Text="Se esse texto está visível é que algo está errado!"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand" />
+                        <Label 
+                            Text="Contate o suporte imediatamente!"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand" />
+                    </StackLayout>
+                </ContentPage>
+            </x:Arguments>
+        </NavigationPage>
+    </FlyoutPage.Detail>
+</FlyoutPage>

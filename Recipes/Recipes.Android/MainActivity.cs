@@ -16,7 +16,12 @@ namespace Recipes.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            LoadApplication(new App());
+
+            // Adicionado
+            string dbNome = "dbRecipes.db3";
+            string dbCaminho = AuxiliarAcessoBanco.ObterCaminhoLocalArquivo(dbNome);
+            
+            LoadApplication(new App(dbNome, dbCaminho)); // Alterado
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

@@ -8,22 +8,33 @@ namespace Recipes
 {
     public partial class App : Application
     {
-        public App()
+        public static String DbNome;
+        public static String DbCaminho;
+
+        public App ()
         {
             InitializeComponent();
 
-            MainPage = new PagPrincipal();
+            MainPage = new PagMain();
         }
 
-        protected override void OnStart()
+        public App (string dbNome, string dbCaminho)
+        {
+            InitializeComponent();
+            DbNome = dbNome;
+            DbCaminho = dbCaminho;
+            MainPage = new PagMain();
+        }
+
+        protected override void OnStart ()
         {
         }
 
-        protected override void OnSleep()
+        protected override void OnSleep ()
         {
         }
 
-        protected override void OnResume()
+        protected override void OnResume ()
         {
         }
     }

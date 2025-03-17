@@ -16623,16 +16623,31 @@ namespace Recipes.Droid
 			public const int search_white = 2131165359;
 			
 			// aapt resource value: 0x7F0700B0
-			public const int test_custom_background = 2131165360;
+			public const int star_black = 2131165360;
 			
 			// aapt resource value: 0x7F0700B1
-			public const int test_level_drawable = 2131165361;
+			public const int star_icon_black = 2131165361;
 			
 			// aapt resource value: 0x7F0700B2
-			public const int tooltip_frame_dark = 2131165362;
+			public const int star_icon_white = 2131165362;
 			
 			// aapt resource value: 0x7F0700B3
-			public const int tooltip_frame_light = 2131165363;
+			public const int star_white = 2131165363;
+			
+			// aapt resource value: 0x7F0700B4
+			public const int star_white_filled = 2131165364;
+			
+			// aapt resource value: 0x7F0700B5
+			public const int test_custom_background = 2131165365;
+			
+			// aapt resource value: 0x7F0700B6
+			public const int test_level_drawable = 2131165366;
+			
+			// aapt resource value: 0x7F0700B7
+			public const int tooltip_frame_dark = 2131165367;
+			
+			// aapt resource value: 0x7F0700B8
+			public const int tooltip_frame_light = 2131165368;
 			
 			static Drawable()
 			{

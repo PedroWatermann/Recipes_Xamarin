@@ -9628,10 +9628,15 @@ public final class R {
     public static final int search_icon_black=0x7f0700ad;
     public static final int search_icon_white=0x7f0700ae;
     public static final int search_white=0x7f0700af;
-    public static final int test_custom_background=0x7f0700b0;
-    public static final int test_level_drawable=0x7f0700b1;
-    public static final int tooltip_frame_dark=0x7f0700b2;
-    public static final int tooltip_frame_light=0x7f0700b3;
+    public static final int star_black=0x7f0700b0;
+    public static final int star_icon_black=0x7f0700b1;
+    public static final int star_icon_white=0x7f0700b2;
+    public static final int star_white=0x7f0700b3;
+    public static final int star_white_filled=0x7f0700b4;
+    public static final int test_custom_background=0x7f0700b5;
+    public static final int test_level_drawable=0x7f0700b6;
+    public static final int tooltip_frame_dark=0x7f0700b7;
+    public static final int tooltip_frame_light=0x7f0700b8;
   }
   public static final class id {
     public static final int ALT=0x7f080000;

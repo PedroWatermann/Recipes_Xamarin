@@ -784,3 +784,8 @@ C:\Users\pedro\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes.Andro
 C:\Users\pedro\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes.Android\obj\Debug\130\android\src\mono\androidx\fragment\app\strictmode\FragmentStrictMode_OnViolationListenerImplementor.java
 C:\Users\pedro\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes.Android\obj\Debug\130\android\bin\classes2.dex
 C:\Users\pedro\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes.Android\obj\Debug\130\res\drawable\home_white_2.png
+C:\Users\pedro\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes.Android\obj\Debug\130\res\drawable\star_black.png
+C:\Users\pedro\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes.Android\obj\Debug\130\res\drawable\star_icon_black.png
+C:\Users\pedro\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes.Android\obj\Debug\130\res\drawable\star_icon_white.png
+C:\Users\pedro\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes.Android\obj\Debug\130\res\drawable\star_white.png
+C:\Users\pedro\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes.Android\obj\Debug\130\res\drawable\star_white_filled.png

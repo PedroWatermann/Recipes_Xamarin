@@ -45,6 +45,7 @@
         <Entry
             Placeholder="Título da receita"
             PlaceholderColor="#CFCFCF"
+            TextColor="Black"
             Grid.Row="1"
             Grid.Column="0"
             HorizontalOptions="FillAndExpand"
@@ -88,6 +89,7 @@
             <Editor
                 Placeholder="Ingredientes da receita"
                 PlaceholderColor="#CFCFCF"
+                TextColor="Black"
                 x:Name="edtIngrediente"/>
         </Frame>
         
@@ -104,6 +106,7 @@
         <Entry
             Placeholder="Link da receita"
             PlaceholderColor="#CFCFCF"
+            TextColor="Black"
             Grid.Row="5"
             Grid.Column="0"
             Grid.ColumnSpan="3"

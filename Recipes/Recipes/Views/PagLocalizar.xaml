@@ -73,33 +73,77 @@
             Grid.Row="2"
             Grid.Column="0"
             Grid.ColumnSpan="3"
-            Margin="20, 40, 10, 0"
+            Margin="20, 20"
             x:Name="btnPesquisar"
             Clicked="btnPesquisar_Clicked"/>
 
-        <ListView
-            HasUnevenRows="True"
-            SeparatorColor="Blue"
-            Margin="15"
-            x:Name="lvwReceita"
-            ItemSelected="lvwReceita_ItemSelected">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Orientation="Horizontal">
-                            <Label 
-                                Text="Título: " 
-                                TextColor="Black"
-                                FontAttributes="Bold" 
-                                FontSize="25"/>
-                            <Label
-                                Text="{Binding titulo, StringFormat='{0}'}"
-                                TextColor="Black"
-                                FontSize="20"/>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <Frame
+            Grid.Row="3"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            BackgroundColor="Transparent"
+            BorderColor="Black"
+            CornerRadius="21"
+            Padding="1">
+            <Frame
+                BackgroundColor="Transparent"
+                BorderColor="Black"
+                CornerRadius="20"
+                Padding="0">
+                <ListView
+                    HasUnevenRows="True"
+                    SeparatorColor="Blue"
+                    Margin="15"
+                    x:Name="lvwReceita"
+                    ItemSelected="lvwReceita_ItemSelected"
+                    VerticalOptions="FillAndExpand"
+                    SeparatorVisibility="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame
+                                    BackgroundColor="Transparent"
+                                    BorderColor="Black"
+                                    Padding="0"
+                                    Margin="0, 5"
+                                    CornerRadius="10">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label
+                                                Text="{Binding titulo, StringFormat='{0}'}"
+                                                TextColor="Black"
+                                                FontSize="23"
+                                                FontAttributes="Bold"
+                                                VerticalOptions="CenterAndExpand"
+                                                HorizontalOptions="CenterAndExpand"/>
+                                        <Image
+                                                WidthRequest="50"
+                                                HorizontalOptions="End">
+                                            <Image.Triggers>
+                                                <DataTrigger
+                                                        TargetType="Image" 
+                                                        Binding="{Binding favorito}"
+                                                        Value="true">
+                                                    <Setter
+                                                            Property="Source"
+                                                            Value="star_white_filled.png"/>
+                                                </DataTrigger>
+                                                <DataTrigger
+                                                        TargetType="Image"
+                                                        Binding="{Binding favorito}"
+                                                        Value="false">
+                                                    <Setter 
+                                                            Property="Source"
+                                                            Value="star_white.png"/>
+                                                </DataTrigger>
+                                            </Image.Triggers>
+                                        </Image>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+        </Frame>
     </Grid>
 </ContentPage>

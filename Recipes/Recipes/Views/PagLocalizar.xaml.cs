@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Recipes.Models;
+using Recipes.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +17,18 @@ namespace Recipes.Views
 		public PagLocalizar ()
 		{
 			InitializeComponent ();
+
+            atualizaLista();
 		}
+
+        public void atualizaLista()
+        {
+            string t = string.IsNullOrWhiteSpace(entTitulo.Text) ? "" : entTitulo.Text;
+
+            SerDbRecipes db = new SerDbRecipes(App.DbCaminho);
+
+            lvwReceita.ItemsSource = swtFavorito.IsToggled ? db.Localizar(t, true) : db.Localizar(t);
+        }
 
         private void btnHome_Clicked(object sender, EventArgs e)
         {
@@ -27,19 +40,22 @@ namespace Recipes.Views
             fp.IsPresented = false;
         }
 
-        private void lvwReceita_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-
-        }
-
         private void swtFavorito_Toggled(object sender, ToggledEventArgs e)
         {
-
+            atualizaLista();
         }
 
         private void btnPesquisar_Clicked(object sender, EventArgs e)
         {
+            atualizaLista();
+        }
+        
+        private void lvwReceita_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            ModReceitas r = (ModReceitas)lvwReceita.SelectedItem;
 
+            FlyoutPage fp = (FlyoutPage)Application.Current.MainPage;
+            fp.Detail = new NavigationPage(new PagInserir(r));
         }
     }
 }

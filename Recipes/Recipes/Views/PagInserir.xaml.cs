@@ -31,11 +31,13 @@ namespace Recipes.Views
             btnEditar.IsVisible = true;
             btnExcluir.IsVisible = true;
 
+            lblId.Text = r.id.ToString();
             entTitulo.Text = r.titulo.ToString();
-            string[] i = r.ingredientes.Split('@', '\n');
+            string[] i = r.ingredientes.Split('@');
             foreach (string s in i)
             {
                 edtIngrediente.Text += s;
+                edtIngrediente.Text += '\n';
             }
             entLink.Text = r.link.ToString();
             swtFavorito.IsToggled = r.favorito;
@@ -56,7 +58,7 @@ namespace Recipes.Views
             imgFavorito.Source = swtFavorito.IsToggled ? "star_white_filled.png" : "star_white.png";
         }
 
-        private void btnSalvar_Clicked(object sender, EventArgs e)
+        private async void btnSalvar_Clicked(object sender, EventArgs e)
         {
             try
             {
@@ -72,6 +74,11 @@ namespace Recipes.Views
 
                 SerDbRecipes db = new SerDbRecipes(App.DbCaminho);
                 db.Inserir(r);
+
+                await DisplayAlert("Adição", db.MensagemStatus, "OK");
+
+                FlyoutPage fp = (FlyoutPage)Application.Current.MainPage;
+                fp.Detail = new NavigationPage(new PagHome());
             }
             catch (Exception ex)
             {
@@ -79,7 +86,7 @@ namespace Recipes.Views
             }
         }
 
-        private void btnEditar_Clicked(object sender, EventArgs e)
+        private async void btnEditar_Clicked(object sender, EventArgs e)
         {
             try
             {
@@ -87,6 +94,7 @@ namespace Recipes.Views
 
                 ModReceitas r = new ModReceitas()
                 {
+                    id = Convert.ToInt32(lblId.Text),
                     titulo = entTitulo.Text,
                     ingredientes = i,
                     link = entLink.Text,
@@ -94,7 +102,13 @@ namespace Recipes.Views
                 };
 
                 SerDbRecipes db = new SerDbRecipes(App.DbCaminho);
-                db.Alterar(r);
+                if (!await db.Alterar(r, this))
+                    return;
+
+                await DisplayAlert("Atualização", db.MensagemStatus, "OK");
+
+                FlyoutPage fp = (FlyoutPage)Application.Current.MainPage;
+                fp.Detail = new NavigationPage(new PagHome());
             }
             catch (Exception ex)
             {

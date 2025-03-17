@@ -17,6 +17,17 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
+        <Label
+            Text="RECIPES"
+            TextDecorations="Underline"
+            TextColor="Black"
+            FontSize="60"
+            FontAttributes="Bold"
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            VerticalOptions="StartAndExpand"
+            HorizontalOptions="CenterAndExpand"/>
         <Image
             Source="flan.png"
             WidthRequest="300"

@@ -5,6 +5,8 @@ using System.Data.Common;
 using System.Text;
 
 using Recipes.Models;
+using Xamarin.Forms;
+using System.Threading.Tasks;
 
 namespace Recipes.Services
 {
@@ -64,7 +66,7 @@ namespace Recipes.Services
             }
         }
 
-        public async void Alterar(ModReceitas receita)
+        public async Task<bool> Alterar(ModReceitas receita, Page page)
         {
             try
             {
@@ -73,29 +75,29 @@ namespace Recipes.Services
 
                 if (string.IsNullOrWhiteSpace(receita.ingredientes))
                 {
-                    var result = await App.Current.MainPage.DisplayAlert(
+                    var result = await page.DisplayAlert(
                         "Confirmar Alteração",
                         "O campo de ingredientes está vazio. Você deseja continuar com a alteração?",
                         "Sim", "Não");
 
-                    if (!result) 
-                        return; 
+                    if (!result) return false; 
                 }
 
                 if (string.IsNullOrWhiteSpace(receita.link))
                 {
-                    var result = await App.Current.MainPage.DisplayAlert(
+                    var result = await page.DisplayAlert(
                         "Confirmar Alteração",
                         "O campo de link está vazio. Você deseja continuar com a alteração?",
                         "Sim", "Não");
 
-                    if (!result)
-                        return; 
+                    if (!result) return false; 
                 }
 
                 int res = conn.Update(receita);
 
                 this.MensagemStatus = res != 0 ? $"Receita alterada:\n\n[{receita.titulo}]" : "Ocorreu um erro!\n\nTente novamente!";
+
+                return true;
             }
             catch (Exception ex)
             {

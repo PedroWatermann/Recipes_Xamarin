@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Recipes.Views.PagSobre"
              Title="Sobre"
-             BackgroundColor="#DF7800">
+             BackgroundColor="#DF7800"
+             Padding="10">
     <ContentPage.ToolbarItems>
         <ToolbarItem
             Text="Home"
@@ -13,7 +14,43 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            
+
+            <Image 
+                Source="chefe.png"
+                Margin="10"
+                VerticalOptions="Start"/>
+
+            <Label
+                Text="RECIPES"
+                FontSize="60"
+                TextDecorations="Underline"
+                FontAttributes="Bold"
+                TextColor="Black"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="StartAndExpand"/>
+
+            <Label
+                Text="Desenvolvedor: Pedro A. S. Watermann"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="Black"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"/>
+            <Label
+                Text="Contato: pedro.programmer.pt@gmail.com"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="Black"
+                VerticalOptions="StartAndExpand"
+                HorizontalOptions="CenterAndExpand"/>
+
+            <Label
+                Text="Maringá - 2025"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="Black"
+                VerticalOptions="EndAndExpand"
+                HorizontalOptions="CenterAndExpand"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

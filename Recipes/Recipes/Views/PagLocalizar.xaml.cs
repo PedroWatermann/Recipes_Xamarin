@@ -26,5 +26,20 @@ namespace Recipes.Views
             };
             fp.IsPresented = false;
         }
+
+        private void lvwReceita_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+
+        }
+
+        private void swtFavorito_Toggled(object sender, ToggledEventArgs e)
+        {
+
+        }
+
+        private void btnPesquisar_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

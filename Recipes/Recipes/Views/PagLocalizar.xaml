@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Recipes.Views.PagLocalizar"
              Title="Pesquisar"
-             BackgroundColor="#DF7800">
+             BackgroundColor="#DF7800"
+             Padding="10">
     <ContentPage.ToolbarItems>
         <ToolbarItem
             Text="Home"
@@ -11,9 +12,94 @@
             x:Name="btnHome"
             Clicked="btnHome_Clicked"/>
     </ContentPage.ToolbarItems>
-    <ContentPage.Content>
-        <StackLayout>
-            
-        </StackLayout>
-    </ContentPage.Content>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Label
+            Text="Título: "
+            TextColor="Black"
+            FontSize="25"
+            FontAttributes="Bold"
+            HorizontalOptions="StartAndExpand"
+            Grid.Row="0"
+            Grid.Column="0"
+            VerticalOptions="End"/>
+        <Entry
+            Placeholder="Título da receita"
+            PlaceholderColor="#CFCFCF"
+            Grid.Row="1"
+            Grid.Column="0"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Start"
+            x:Name="entTitulo"/>
+        
+        <Image
+            Source="star_white"
+            Grid.Row="1"
+            Grid.Column="1"
+            HorizontalOptions="EndAndExpand"
+            HeightRequest="50"
+            VerticalOptions="Start"
+            x:Name="imgFavorito"/>
+        <Switch
+            Grid.Row="1"
+            Grid.Column="2"
+            HorizontalOptions="Start"
+            OnColor="#00A6FF"
+            ThumbColor="#009AF0"
+            x:Name="swtFavorito"
+            Toggled="swtFavorito_Toggled"/>
+
+        <Button
+            Text="Pesquisar"
+            TextColor="Black"
+            TextTransform="None"
+            FontSize="25"
+            FontAttributes="Bold"
+            CornerRadius="20"
+            BackgroundColor="#00BCD4"
+            BorderWidth="2"
+            BorderColor="#2196F3"
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Margin="20, 40, 10, 0"
+            x:Name="btnPesquisar"
+            Clicked="btnPesquisar_Clicked"/>
+
+        <ListView
+            HasUnevenRows="True"
+            SeparatorColor="Blue"
+            Margin="15"
+            x:Name="lvwReceita"
+            ItemSelected="lvwReceita_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label 
+                                Text="Título: " 
+                                TextColor="Black"
+                                FontAttributes="Bold" 
+                                FontSize="25"/>
+                            <Label
+                                Text="{Binding titulo, StringFormat='{0}'}"
+                                TextColor="Black"
+                                FontSize="20"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
 </ContentPage>

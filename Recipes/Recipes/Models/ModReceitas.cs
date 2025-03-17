@@ -7,7 +7,7 @@ namespace Recipes.Models
 {
     [Table("receitas")]
 
-    class ModReceitas
+    public class ModReceitas
     {
         [PrimaryKey, AutoIncrement]
         public int id { get; set; }

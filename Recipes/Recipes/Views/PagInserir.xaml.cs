@@ -21,7 +21,8 @@ namespace Recipes.Views
             btnSalvar.IsVisible = true;
             btnEditar.IsVisible = false;
             btnExcluir.IsVisible = false;
-		}
+            sklBotoes.IsVisible = false;
+        }
 
         public PagInserir(ModReceitas r)
         {
@@ -30,6 +31,7 @@ namespace Recipes.Views
             btnSalvar.IsVisible = false;
             btnEditar.IsVisible = true;
             btnExcluir.IsVisible = true;
+            sklBotoes.IsVisible = true;
 
             lblId.Text = r.id.ToString();
             entTitulo.Text = r.titulo.ToString();
@@ -40,7 +42,7 @@ namespace Recipes.Views
                 edtIngrediente.Text += '\n';
             }
             entLink.Text = r.link.ToString();
-            swtFavorito.IsToggled = r.favorito;
+            imgFavorito.Source = r.favorito ? "star_white_filled.png" : "star_white";
         }
 
         private void btnHome_Clicked(object sender, EventArgs e)
@@ -53,44 +55,18 @@ namespace Recipes.Views
 			fp.IsPresented = false;
         }
 
-        private void swtFavorito_Toggled(object sender, ToggledEventArgs e)
-        {
-            imgFavorito.Source = swtFavorito.IsToggled ? "star_white_filled.png" : "star_white.png";
-        }
-
-        private async void btnSalvar_Clicked(object sender, EventArgs e)
-        {
-            try
-            {
-                string i = edtIngrediente.Text.Replace('\n', '@');
-
-                ModReceitas r = new ModReceitas()
-                {
-                    titulo = entTitulo.Text,
-                    ingredientes = i,
-                    link = entLink.Text,
-                    favorito = swtFavorito.IsToggled
-                };
-
-                SerDbRecipes db = new SerDbRecipes(App.DbCaminho);
-                db.Inserir(r);
-
-                await DisplayAlert("Adição", db.MensagemStatus, "OK");
-
-                FlyoutPage fp = (FlyoutPage)Application.Current.MainPage;
-                fp.Detail = new NavigationPage(new PagHome());
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Erro: ", ex);
-            }
-        }
+        
 
         private async void btnEditar_Clicked(object sender, EventArgs e)
         {
             try
             {
                 string i = edtIngrediente.Text.Replace('\n', '@');
+                bool f = false;
+                if (imgFavorito.Source is FileImageSource fileSource && fileSource.File == "star_white_filled.png")
+                {
+                    f = true;
+                }
 
                 ModReceitas r = new ModReceitas()
                 {
@@ -98,7 +74,7 @@ namespace Recipes.Views
                     titulo = entTitulo.Text,
                     ingredientes = i,
                     link = entLink.Text,
-                    favorito = swtFavorito.IsToggled
+                    favorito = f
                 };
 
                 SerDbRecipes db = new SerDbRecipes(App.DbCaminho);
@@ -119,7 +95,7 @@ namespace Recipes.Views
 
         private async void btnExcluir_Clicked(object sender, EventArgs e)
         {
-            if (await DisplayAlert("Excluir", "Deseja realmete excluír esta receita?", "Sim", "Não"))
+            if (await DisplayAlert("Excluir", "Deseja realmete excluir esta receita?", "Sim", "Não"))
             {
                 int id = Convert.ToInt32(lblId.Text);
 
@@ -129,6 +105,51 @@ namespace Recipes.Views
 
                 FlyoutPage fp = (FlyoutPage)Application.Current.MainPage;
                 fp.Detail = new NavigationPage(new PagHome());
+            }
+        }
+
+        private void tapImgFavorito_Tapped(object sender, EventArgs e)
+        {
+            if (imgFavorito.Source is FileImageSource fileSource && fileSource.File == "star_white.png")
+            {
+                imgFavorito.Source = "star_white_filled.png";
+            }
+            else
+            {
+                imgFavorito.Source = "star_white.png";
+            }
+        }
+
+        private async void btnSalvar_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                string i = edtIngrediente.Text.Replace('\n', '@');
+                bool f = false;
+                if (imgFavorito.Source is FileImageSource fileSource && fileSource.File == "star_white_filled.png")
+                {
+                    f = true;
+                }
+
+                ModReceitas r = new ModReceitas()
+                {
+                    titulo = entTitulo.Text,
+                    ingredientes = i,
+                    link = entLink.Text,
+                    favorito = f
+                };
+
+                SerDbRecipes db = new SerDbRecipes(App.DbCaminho);
+                db.Inserir(r);
+
+                await DisplayAlert("Adição", db.MensagemStatus, "OK");
+
+                FlyoutPage fp = (FlyoutPage)Application.Current.MainPage;
+                fp.Detail = new NavigationPage(new PagHome());
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro: ", ex);
             }
         }
     }

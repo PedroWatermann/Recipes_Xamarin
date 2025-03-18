@@ -50,11 +50,9 @@ namespace Recipes.Services
 
         public List<ModReceitas> Listar()
         {
-            List<ModReceitas> li = new List<ModReceitas>();
-
             try
             {
-                li = conn.Table<ModReceitas>().ToList();
+                List<ModReceitas> li = conn.Table<ModReceitas>().ToList();
 
                 this.MensagemStatus = "Listagem das anotações!";
 

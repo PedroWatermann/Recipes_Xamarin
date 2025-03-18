@@ -4,7 +4,7 @@
              x:Class="Recipes.Views.PagLocalizar"
              Title="Pesquisar"
              BackgroundColor="#DF7800"
-             Padding="10">
+             Padding="10, 10, 10, 30">
     <ContentPage.ToolbarItems>
         <ToolbarItem
             Text="Home"
@@ -16,13 +16,11 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         
         <Label
@@ -35,61 +33,46 @@
             Grid.Column="0"
             VerticalOptions="End"/>
         <Entry
-            Placeholder="Título da receita"
+            Placeholder="Digite o título da receita"
             PlaceholderColor="#CFCFCF"
             Grid.Row="1"
             Grid.Column="0"
             HorizontalOptions="FillAndExpand"
             VerticalOptions="Start"
-            x:Name="entTitulo"/>
-        
+            x:Name="entTitulo"
+            TextChanged="entTitulo_TextChanged"/>
+
         <Image
-            Source="star_white"
+            Source="star_white.png"
             Grid.Row="1"
             Grid.Column="1"
             HorizontalOptions="EndAndExpand"
-            HeightRequest="50"
+            HeightRequest="60"
             VerticalOptions="Start"
-            x:Name="imgFavorito"/>
-        <Switch
-            Grid.Row="1"
-            Grid.Column="2"
-            HorizontalOptions="Start"
-            OnColor="#00A6FF"
-            ThumbColor="#009AF0"
-            x:Name="swtFavorito"
-            Toggled="swtFavorito_Toggled"/>
-
-        <Button
-            Text="Pesquisar"
-            TextColor="Black"
-            TextTransform="None"
-            FontSize="25"
-            FontAttributes="Bold"
-            CornerRadius="20"
-            BackgroundColor="#00BCD4"
-            BorderWidth="2"
-            BorderColor="#2196F3"
-            Grid.Row="2"
-            Grid.Column="0"
-            Grid.ColumnSpan="3"
-            Margin="20, 20"
-            x:Name="btnPesquisar"
-            Clicked="btnPesquisar_Clicked"/>
+            x:Name="imgFavorito">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer
+                    NumberOfTapsRequired="1"
+                    x:Name="tapImgFavorito"
+                    Tapped="tapImgFavorito_Tapped"/>
+            </Image.GestureRecognizers>
+        </Image>
 
         <Frame
-            Grid.Row="3"
+            Grid.Row="2"
             Grid.Column="0"
-            Grid.ColumnSpan="3"
+            Grid.ColumnSpan="2"
             BackgroundColor="Transparent"
             BorderColor="Black"
             CornerRadius="21"
-            Padding="1">
+            Padding="1"
+            x:Name="frmBorda">
             <Frame
                 BackgroundColor="Transparent"
                 BorderColor="Black"
                 CornerRadius="20"
-                Padding="0">
+                Padding="0"
+                x:Name="frmLista">
                 <ListView
                     HasUnevenRows="True"
                     SeparatorColor="Blue"
@@ -144,6 +127,26 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </Frame>
+        </Frame>
+        <Frame
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            BackgroundColor="Transparent"
+            BorderColor="Black"
+            CornerRadius="21"
+            Padding="1"
+            IsVisible="False"
+            x:Name="frmReceita">
+            <Label
+                Text="Nenhuma receita adicionada!"
+                TextColor="Black"
+                FontSize="20"
+                FontAttributes="Bold"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+                IsVisible="False"
+                x:Name="lblReceita"/>
         </Frame>
     </Grid>
 </ContentPage>

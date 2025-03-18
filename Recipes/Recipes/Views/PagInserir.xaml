@@ -4,7 +4,7 @@
              x:Class="Recipes.Views.PagInserir"
              Title="Adicionar"
              BackgroundColor="#DF7800"
-             Padding="10, 30">
+             Padding="10, 10, 10, 30">
     <ContentPage.ToolbarItems>
         <ToolbarItem
             Text="Home"
@@ -23,9 +23,8 @@
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
         <Label
@@ -53,21 +52,20 @@
             x:Name="entTitulo"/>
 
         <Image
-            Source="star_white"
+            Source="star_white.png"
             Grid.Row="1"
             Grid.Column="1"
             HorizontalOptions="EndAndExpand"
-            HeightRequest="50"
+            HeightRequest="60"
             VerticalOptions="Start"
-            x:Name="imgFavorito"/>
-        <Switch
-            Grid.Row="1"
-            Grid.Column="2"
-            HorizontalOptions="Start"
-            OnColor="#00A6FF"
-            ThumbColor="#009AF0"
-            x:Name="swtFavorito"
-            Toggled="swtFavorito_Toggled"/>
+            x:Name="imgFavorito">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer
+                    NumberOfTapsRequired="1"
+                    x:Name="tapImgFavorito"
+                    Tapped="tapImgFavorito_Tapped"/>
+            </Image.GestureRecognizers>
+        </Image>
         
         <Label
             Text="Ingredientes:"
@@ -85,7 +83,7 @@
             Padding="5"
             Grid.Row="3"
             Grid.Column="0"
-            Grid.ColumnSpan="3">
+            Grid.ColumnSpan="2">
             <Editor
                 Placeholder="Ingredientes da receita"
                 PlaceholderColor="#CFCFCF"
@@ -109,7 +107,7 @@
             TextColor="Black"
             Grid.Row="5"
             Grid.Column="0"
-            Grid.ColumnSpan="3"
+            Grid.ColumnSpan="2"
             HorizontalOptions="FillAndExpand"
             VerticalOptions="Start"
             x:Name="entLink"/>
@@ -126,45 +124,50 @@
             BorderColor="#4CAF50"
             Grid.Row="6"
             Grid.Column="0"
-            Grid.ColumnSpan="3"
+            Grid.ColumnSpan="2"
             Margin="20, 40, 20, 0"
             IsVisible="True"
             x:Name="btnSalvar"
             Clicked="btnSalvar_Clicked"/>
 
-        <Button
-            Text="Editar"
-            TextColor="Black"
-            TextTransform="None"
-            FontSize="25"
-            FontAttributes="Bold"
-            CornerRadius="20"
-            BackgroundColor="#00BCD4"
-            BorderWidth="2"
-            BorderColor="#2196F3"
+        <StackLayout
+            Orientation="Horizontal"
             Grid.Row="6"
             Grid.Column="0"
-            Margin="20, 40, 10, 0"
-            IsVisible="False"
-            x:Name="btnEditar"
-            Clicked="btnEditar_Clicked"/>  
-
-        <Button
-            Text="Excluir"
-            TextColor="Black"
-            TextTransform="None"
-            FontSize="25"
-            FontAttributes="Bold"
-            CornerRadius="20"
-            BackgroundColor="#FF665C"
-            BorderWidth="2"
-            BorderColor="#FF0000"
-            Grid.Row="6"
-            Grid.Column="1"
             Grid.ColumnSpan="2"
-            Margin="10, 40, 20, 0"
-            IsVisible="False"
-            x:Name="btnExcluir"
-            Clicked="btnExcluir_Clicked"/>  
+            x:Name="sklBotoes"
+            IsVisible="False">
+            <Button
+                Text="Editar"
+                TextColor="Black"
+                TextTransform="None"
+                FontSize="25"
+                FontAttributes="Bold"
+                CornerRadius="20"
+                BackgroundColor="#00BCD4"
+                BorderWidth="2"
+                BorderColor="#2196F3"
+                Margin="20, 40, 10, 0"
+                IsVisible="False"
+                HorizontalOptions="FillAndExpand"
+                x:Name="btnEditar"
+                Clicked="btnEditar_Clicked"/>
+
+            <Button
+                Text="Excluir"
+                TextColor="Black"
+                TextTransform="None"
+                FontSize="25"
+                FontAttributes="Bold"
+                CornerRadius="20"
+                BackgroundColor="#FF665C"
+                BorderWidth="2"
+                BorderColor="#FF0000"
+                Margin="10, 40, 20, 0"
+                IsVisible="False"
+                HorizontalOptions="FillAndExpand"
+                x:Name="btnExcluir"
+                Clicked="btnExcluir_Clicked"/>
+        </StackLayout>  
     </Grid>
 </ContentPage>

@@ -27,7 +27,32 @@ namespace Recipes.Views
 
             SerDbRecipes db = new SerDbRecipes(App.DbCaminho);
 
-            lvwReceita.ItemsSource = swtFavorito.IsToggled ? db.Localizar(t, true) : db.Localizar(t);
+            bool f = false;
+            if (imgFavorito.Source is FileImageSource fileSource && fileSource.File == "star_white_filled.png")
+            {
+                f = true;
+            }
+
+            var listaReceitas = f ? db.Localizar(t, true) : db.Localizar(t);
+
+            lvwReceita.ItemsSource = listaReceitas;
+
+            if (listaReceitas != null && listaReceitas.Any())
+            {
+                lblReceita.IsVisible = false;
+                frmReceita.IsVisible = false;
+
+                frmBorda.IsVisible = true;
+                frmLista.IsVisible = true;
+            }
+            else
+            {
+                lblReceita.IsVisible = true;
+                frmReceita.IsVisible = true;
+
+                frmBorda.IsVisible = false;
+                frmLista.IsVisible = false;
+            }
         }
 
         private void btnHome_Clicked(object sender, EventArgs e)
@@ -44,18 +69,36 @@ namespace Recipes.Views
         {
             atualizaLista();
         }
-
-        private void btnPesquisar_Clicked(object sender, EventArgs e)
-        {
-            atualizaLista();
-        }
         
         private void lvwReceita_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             ModReceitas r = (ModReceitas)lvwReceita.SelectedItem;
 
             FlyoutPage fp = (FlyoutPage)Application.Current.MainPage;
-            fp.Detail = new NavigationPage(new PagInserir(r));
+            fp.Detail = new NavigationPage(new PagInserir(r))
+            {
+                BarBackgroundColor = Color.FromHex("#C85400")
+            };
+            fp.IsPresented = false;
+        }
+
+        private void entTitulo_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            atualizaLista();
+        }
+
+        private void tapImgFavorito_Tapped(object sender, EventArgs e)
+        {
+            if (imgFavorito.Source is FileImageSource fileSource && fileSource.File == "star_white.png")
+            {
+                imgFavorito.Source = "star_white_filled.png";
+                atualizaLista();
+            }
+            else
+            {
+                imgFavorito.Source = "star_white.png";
+                atualizaLista();
+            }
         }
     }
 }

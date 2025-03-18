@@ -16,7 +16,13 @@ namespace Recipes.Models
         public String titulo { get; set; }
 
         [NotNull]
+        public String categoria { get; set; }
+
+        [NotNull]
         public String ingredientes { get; set; }
+
+        [NotNull]
+        public String modoPreparo { get; set; }
 
         [NotNull]
         public String link { get; set; }
@@ -28,7 +34,9 @@ namespace Recipes.Models
         {
             this.id = 0;
             this.titulo = "";
+            this.categoria = "";
             this.ingredientes = "";
+            this.modoPreparo = "";
             this.link = "";
             this.favorito = false;
         }

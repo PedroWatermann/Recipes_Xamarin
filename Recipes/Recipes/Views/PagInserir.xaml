@@ -14,13 +14,17 @@
     </ContentPage.ToolbarItems>
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/> 
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>   
+            <RowDefinition Height="Auto"/> 
+            <RowDefinition Height="*"/>   
+            <RowDefinition Height="Auto"/> 
+            <RowDefinition Height="Auto"/> 
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -40,6 +44,7 @@
             HorizontalOptions="StartAndExpand"
             Grid.Row="0"
             Grid.Column="0"
+            Grid.ColumnSpan="2"
             VerticalOptions="End"/>
         <Entry
             Placeholder="Título da receita"
@@ -66,14 +71,77 @@
                     Tapped="tapImgFavorito_Tapped"/>
             </Image.GestureRecognizers>
         </Image>
-        
+
+        <Label
+            Text="Categoria: "
+            TextColor="Black"
+            FontSize="25"
+            FontAttributes="Bold"
+            HorizontalOptions="StartAndExpand"
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            VerticalOptions="End"/>
+        <Picker
+            Title="Selecione..."
+            Grid.Row="3"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            FontSize="20"
+            TitleColor="#CFCFCF"
+            TextColor="Black"
+            x:Name="pckCategoria">
+            <Picker.Items>
+                <x:String>Acompanhamentos</x:String>
+                <x:String>Bolachas e Biscoitos</x:String>
+                <x:String>Bolos</x:String>
+                <x:String>Cremes</x:String>
+                <x:String>Doces</x:String>
+                <x:String>Funcionais / Low Carb</x:String>
+                <x:String>Geléias</x:String>
+                <x:String>Lanches</x:String>
+                <x:String>Massas</x:String>
+                <x:String>Molhos</x:String>
+                <x:String>Pães</x:String>
+                <x:String>Recheios</x:String>
+                <x:String>Refeições</x:String>
+                <x:String>Sobremesas</x:String>
+                <x:String>Salgados</x:String>
+            </Picker.Items>
+        </Picker>
+
         <Label
             Text="Ingredientes:"
             TextColor="Black"
             FontSize="25"
             FontAttributes="Bold"
             HorizontalOptions="StartAndExpand"
-            Grid.Row="2"
+            Grid.Row="4"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            VerticalOptions="End"/>
+        <Frame
+            CornerRadius="10"
+            BorderColor="White"
+            BackgroundColor="Transparent"
+            Padding="5"
+            Grid.Row="5"
+            Grid.Column="0"
+            Grid.ColumnSpan="2">
+            <Editor
+                Placeholder="Ingredientes da receita..."
+                PlaceholderColor="#CFCFCF"
+                TextColor="Black"
+                x:Name="edtIngrediente"/>
+        </Frame>
+
+        <Label
+            Text="Modo de preparo: "
+            TextColor="Black"
+            FontSize="25"
+            FontAttributes="Bold"
+            HorizontalOptions="StartAndExpand"
+            Grid.Row="6"
             Grid.Column="0"
             VerticalOptions="End"/>
         <Frame
@@ -81,23 +149,23 @@
             BorderColor="White"
             BackgroundColor="Transparent"
             Padding="5"
-            Grid.Row="3"
+            Grid.Row="7"
             Grid.Column="0"
             Grid.ColumnSpan="2">
             <Editor
-                Placeholder="Ingredientes da receita"
+                Placeholder="Modo de preparo..."
                 PlaceholderColor="#CFCFCF"
                 TextColor="Black"
-                x:Name="edtIngrediente"/>
+                x:Name="edtModoPreparo"/>
         </Frame>
-        
+
         <Label
             Text="Link:"
             TextColor="Black"
             FontSize="25"
             FontAttributes="Bold"
             HorizontalOptions="StartAndExpand"
-            Grid.Row="4"
+            Grid.Row="8"
             Grid.Column="0"
             VerticalOptions="End"
             Margin="0, 10, 0, 0"/>
@@ -105,7 +173,7 @@
             Placeholder="Link da receita"
             PlaceholderColor="#CFCFCF"
             TextColor="Black"
-            Grid.Row="5"
+            Grid.Row="9"
             Grid.Column="0"
             Grid.ColumnSpan="2"
             HorizontalOptions="FillAndExpand"
@@ -122,17 +190,17 @@
             BackgroundColor="#CDDC39"
             BorderWidth="2"
             BorderColor="#4CAF50"
-            Grid.Row="6"
+            Grid.Row="10"
             Grid.Column="0"
             Grid.ColumnSpan="2"
-            Margin="20, 40, 20, 0"
+            Margin="20, 20, 20, 0"
             IsVisible="True"
             x:Name="btnSalvar"
             Clicked="btnSalvar_Clicked"/>
 
         <StackLayout
             Orientation="Horizontal"
-            Grid.Row="6"
+            Grid.Row="10"
             Grid.Column="0"
             Grid.ColumnSpan="2"
             x:Name="sklBotoes"
@@ -147,7 +215,7 @@
                 BackgroundColor="#00BCD4"
                 BorderWidth="2"
                 BorderColor="#2196F3"
-                Margin="20, 40, 10, 0"
+                Margin="20, 20, 10, 0"
                 IsVisible="False"
                 HorizontalOptions="FillAndExpand"
                 x:Name="btnEditar"
@@ -163,7 +231,7 @@
                 BackgroundColor="#FF665C"
                 BorderWidth="2"
                 BorderColor="#FF0000"
-                Margin="10, 40, 20, 0"
+                Margin="10, 20, 20, 0"
                 IsVisible="False"
                 HorizontalOptions="FillAndExpand"
                 x:Name="btnExcluir"

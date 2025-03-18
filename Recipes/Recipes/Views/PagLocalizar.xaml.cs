@@ -23,20 +23,17 @@ namespace Recipes.Views
 
         public void atualizaLista()
         {
+            // Captura o valor de título, categoria e favorito
             string t = string.IsNullOrWhiteSpace(entTitulo.Text) ? "" : entTitulo.Text;
+            string c = pckCategoria.SelectedIndex >= 0 ? pckCategoria.SelectedItem.ToString() : "";
+            bool f = imgFavorito.Source is FileImageSource fileSource && fileSource.File == "star_white_filled.png";
 
+            // Realiza a busca e exibe a lista
             SerDbRecipes db = new SerDbRecipes(App.DbCaminho);
-
-            bool f = false;
-            if (imgFavorito.Source is FileImageSource fileSource && fileSource.File == "star_white_filled.png")
-            {
-                f = true;
-            }
-
-            var listaReceitas = f ? db.Localizar(t, true) : db.Localizar(t);
-
+            List<ModReceitas> listaReceitas = f ? db.Localizar(t, c, true) : db.Localizar(t, c);
             lvwReceita.ItemsSource = listaReceitas;
 
+            // Exibe/esconde mensagem caso não haja/haja receitas cadastradas
             if (listaReceitas != null && listaReceitas.Any())
             {
                 lblReceita.IsVisible = false;
@@ -89,16 +86,26 @@ namespace Recipes.Views
 
         private void tapImgFavorito_Tapped(object sender, EventArgs e)
         {
-            if (imgFavorito.Source is FileImageSource fileSource && fileSource.File == "star_white.png")
-            {
-                imgFavorito.Source = "star_white_filled.png";
-                atualizaLista();
-            }
-            else
-            {
-                imgFavorito.Source = "star_white.png";
-                atualizaLista();
-            }
+            // Altera a imagem com base no click
+            imgFavorito.Source = imgFavorito.Source is FileImageSource fileSource && fileSource.File == "star_white.png" ? "star_white_filled.png" : "star_white.png";
+            atualizaLista();
+        }
+
+        private void tapImgCategoria_Tapped(object sender, EventArgs e)
+        {
+            pckCategoria.SelectedIndex = -1;
+            imgCategoria.Opacity = 0;
+            imgCategoria.IsEnabled = false;
+            Grid.SetColumnSpan(pckCategoria, 2);
+            atualizaLista();
+        }
+
+        private void pckCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            imgCategoria.Opacity = 1;
+            imgCategoria.IsEnabled = true;
+            Grid.SetColumnSpan(pckCategoria, 1);
+            atualizaLista();
         }
     }
 }

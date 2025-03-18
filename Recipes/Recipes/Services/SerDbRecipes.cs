@@ -29,13 +29,19 @@ namespace Recipes.Services
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(receita.titulo))
+                if (string.IsNullOrEmpty(receita.titulo))
                     throw new Exception("'Títutlo' não informado!");
 
-                if (string.IsNullOrWhiteSpace(receita.ingredientes))
+                if (string.IsNullOrEmpty(receita.categoria))
+                    throw new Exception("'Categoria' não informada!");
+
+                if (string.IsNullOrEmpty(receita.ingredientes))
                     receita.ingredientes = "";
 
-                if (string.IsNullOrWhiteSpace(receita.link))
+                if (string.IsNullOrEmpty(receita.modoPreparo))
+                    receita.modoPreparo = "";
+
+                if (string.IsNullOrEmpty(receita.link))
                     receita.link = "";
 
                 int res = conn.Insert(receita);
@@ -64,38 +70,28 @@ namespace Recipes.Services
             }
         }
 
-        public async Task<bool> Alterar(ModReceitas receita, Page page)
+        public void Alterar(ModReceitas receita, Page page)
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(receita.titulo))
+                if (string.IsNullOrEmpty(receita.titulo))
                     throw new Exception("'Títutlo' não informado!");
 
-                if (string.IsNullOrWhiteSpace(receita.ingredientes))
-                {
-                    var result = await page.DisplayAlert(
-                        "Confirmar Alteração",
-                        "O campo de ingredientes está vazio. Você deseja continuar com a alteração?",
-                        "Sim", "Não");
+                if (string.IsNullOrEmpty(receita.categoria))
+                    throw new Exception("'Categoria' não informada!");
 
-                    if (!result) return false; 
-                }
+                if (string.IsNullOrEmpty(receita.ingredientes))
+                    receita.ingredientes = "";
 
-                if (string.IsNullOrWhiteSpace(receita.link))
-                {
-                    var result = await page.DisplayAlert(
-                        "Confirmar Alteração",
-                        "O campo de link está vazio. Você deseja continuar com a alteração?",
-                        "Sim", "Não");
+                if (string.IsNullOrEmpty(receita.modoPreparo))
+                    receita.modoPreparo = "";
 
-                    if (!result) return false; 
-                }
+                if (string.IsNullOrEmpty(receita.link))
+                    receita.link = "";
 
                 int res = conn.Update(receita);
 
                 this.MensagemStatus = res != 0 ? $"Receita alterada:\n\n[{receita.titulo}]" : "Ocorreu um erro!\n\nTente novamente!";
-
-                return true;
             }
             catch (Exception ex)
             {
@@ -117,13 +113,13 @@ namespace Recipes.Services
             }
         }
 
-        public List<ModReceitas> Localizar(string titulo)
+        public List<ModReceitas> Localizar(string titulo, string categoria)
         {
             try
             {
                 TableQuery<ModReceitas> receita = conn.Table<ModReceitas>();
                 TableQuery<ModReceitas> res = from p in receita 
-                                              where p.titulo.ToLower().Contains(titulo.ToLower()) 
+                                              where p.titulo.ToLower().Contains(titulo.ToLower()) && p.categoria.ToLower().Contains(categoria.ToLower())
                                               select p;
                 return res.ToList();
             }
@@ -133,13 +129,13 @@ namespace Recipes.Services
             }
         }
 
-        public List<ModReceitas> Localizar(string titulo, Boolean fav)
+        public List<ModReceitas> Localizar(string titulo, string categoria, Boolean fav)
         {
             try
             {
                 TableQuery<ModReceitas> receita = conn.Table<ModReceitas>();
                 TableQuery<ModReceitas> res = from p in receita
-                                              where p.titulo.ToLower().Contains(titulo.ToLower()) && p.favorito == fav
+                                              where p.titulo.ToLower().Contains(titulo.ToLower()) && p.categoria.ToLower().Contains(categoria.ToLower()) && p.favorito == fav
                                               select p;
                 return res.ToList();
             }

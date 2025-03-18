@@ -1580,3 +1580,4 @@ C:\Users\Aluno\source\Recipes_Xamarin\Recipes\Recipes.Android\obj\Debug\130\stam
 C:\Users\Aluno\source\Recipes_Xamarin\Recipes\Recipes.Android\obj\Debug\130\stamp\_GenerateJavaStubs.stamp
 C:\Users\Aluno\source\Recipes_Xamarin\Recipes\Recipes.Android\obj\Debug\130\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\Aluno\source\Recipes_Xamarin\Recipes\Recipes.Android\obj\Debug\130\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\pedro\source\repos\PedroWatermann\Recipes_Xamarin\Recipes\Recipes.Android\obj\Debug\130\res\drawable\cancel_white.png

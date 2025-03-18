@@ -16,6 +16,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -57,9 +59,66 @@
                     Tapped="tapImgFavorito_Tapped"/>
             </Image.GestureRecognizers>
         </Image>
-
-        <Frame
+        
+        <Label
+            Text="Categoria: "
+            TextColor="Black"
+            FontSize="25"
+            FontAttributes="Bold"
+            HorizontalOptions="StartAndExpand"
             Grid.Row="2"
+            Grid.Column="0"
+            VerticalOptions="End"/>
+        <Picker
+            Title="Selecione..."
+            Grid.Row="3"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            FontSize="20"
+            TitleColor="#CFCFCF"
+            TextColor="Black"
+            VerticalOptions="StartAndExpand"
+            x:Name="pckCategoria"
+            SelectedIndexChanged="pckCategoria_SelectedIndexChanged">
+            <Picker.Items>
+                <x:String>Acompanhamentos</x:String>
+                <x:String>Bolachas e Biscoitos</x:String>
+                <x:String>Bolos</x:String>
+                <x:String>Cremes</x:String>
+                <x:String>Doces</x:String>
+                <x:String>Funcionais / Low Carb</x:String>
+                <x:String>Geléias</x:String>
+                <x:String>Lanches</x:String>
+                <x:String>Massas</x:String>
+                <x:String>Molhos</x:String>
+                <x:String>Pães</x:String>
+                <x:String>Recheios</x:String>
+                <x:String>Refeições</x:String>
+                <x:String>Sobremesas</x:String>
+                <x:String>Salgados</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <Image
+            Source="cancel_white.png"
+            Grid.Row="3"
+            Grid.Column="1"
+            HorizontalOptions="EndAndExpand"
+            HeightRequest="60"
+            VerticalOptions="StartAndExpand"
+            Opacity="0"
+            IsEnabled="False"
+            x:Name="imgCategoria">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer
+                    NumberOfTapsRequired="1"
+                    x:Name="tapImgCategoria"
+                    Tapped="tapImgCategoria_Tapped"/>
+            </Image.GestureRecognizers>
+        </Image>
+        
+        <Frame
+            Grid.Row="4"
             Grid.Column="0"
             Grid.ColumnSpan="2"
             BackgroundColor="Transparent"
@@ -129,7 +188,7 @@
             </Frame>
         </Frame>
         <Frame
-            Grid.Row="2"
+            Grid.Row="4"
             Grid.Column="0"
             Grid.ColumnSpan="2"
             BackgroundColor="Transparent"
